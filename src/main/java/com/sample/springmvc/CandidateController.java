@@ -36,9 +36,9 @@ public class CandidateController {
 	
 
 	@GetMapping("/viewCandidates")    
-    public String viewCandidateInfo(Model m){    
+    public String viewCandidateInfo(Model model){    
         List<Candidate> list=candidatedao.getCandidates();    
-        m.addAttribute("list",list);
+        model.addAttribute("list",list);
         return "viewCandidates";    
     }
 /*	
@@ -51,9 +51,9 @@ public class CandidateController {
     }*/
 	
 	@RequestMapping(value="/viewCandidates/{id}")    
-    public String getCandidateDetails(@PathVariable("id") int id, @RequestParam("empid") int empId, Model m){    
+    public String getCandidateDetails(@PathVariable("id") int id, @RequestParam("empid") int empId, Model model){    
         List<Candidate> list=candidatedao.getCandidates();    
-        m.addAttribute("list",list);
+        model.addAttribute("list",list);
         System.out.println("candidate id :"+empId);
         System.out.println("Sample response for Id "+id);
         return "viewCandidates";   
